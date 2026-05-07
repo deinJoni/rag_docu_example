@@ -1,0 +1,32 @@
+[project]
+name = "rag-docu-example"
+version = "0.0.0"
+description = "RAG documentation pipeline + agents"
+requires-python = ">=3.12"
+
+[tool.uv.workspace]
+members = ["apps/pipeline", "packages/shared"]
+
+[tool.uv]
+dev-dependencies = [
+  "ruff>=0.7.0",
+  "pyright>=1.1.385",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["apps/pipeline/src", "packages/shared/src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F401"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+include = ["apps/pipeline/src", "packages/shared/src"]
+venvPath = "."
+venv = ".venv"
