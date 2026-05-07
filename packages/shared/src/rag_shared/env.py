@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     )
 
     supabase_url: str = Field(alias="SUPABASE_URL")
-    supabase_service_role_key: str = Field(alias="SUPABASE_SERVICE_ROLE_KEY")
+    supabase_secret_key: str = Field(alias="SUPABASE_SECRET_KEY")
     supabase_bucket: str = Field(alias="SUPABASE_BUCKET")
 
 
