@@ -52,3 +52,6 @@ venv/
 *.egg-info/
 *.egg
 pip-wheel-metadata/
+
+# Local data
+data/

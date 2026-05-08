@@ -1,9 +1,9 @@
-from rag_shared import get_settings, get_supabase
+"""Bronze layer: snapshot-from-storage → bronze.* tables.
 
+See ``load.run`` for the entry point. The CLI dispatcher in
+``pipeline.__main__`` calls ``run()`` with the layer-stripped argv tail.
+"""
 
-def run() -> None:
-    settings = get_settings()
-    client = get_supabase()
-    print(f"[bronze] listing bucket: {settings.supabase_bucket}")
-    entries = client.storage.from_(settings.supabase_bucket).list()
-    print(f"[bronze] found {len(entries)} entries (top level)")
+from .load import run, run_bronze
+
+__all__ = ["run", "run_bronze"]
